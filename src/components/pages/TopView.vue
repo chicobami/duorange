@@ -8,7 +8,7 @@ import StartButton from '../templates/StartButton.vue'
     <div class="white-cover">
       <TitleLogo />
       <div class="wrap-start-button">
-        <StartButton :is-signed-up="false"/>
+        <StartButton :is-signed-up="true"/>
       </div>
     </div>
   </div>
