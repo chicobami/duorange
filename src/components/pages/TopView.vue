@@ -12,7 +12,6 @@ import StartButton from '../templates/StartButton.vue'
       </div>
     </div>
   </div>
-  
 </template>
 
 <style scoped>
