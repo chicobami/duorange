@@ -4,15 +4,17 @@ const props = defineProps(['isSignedUp'])
 
 </script>
 <template>
-  <ButtonPart>
-    <RouterLink to="/login" v-if="isSignedUp">GAME START</RouterLink>
-    <RouterLink to="/prologue" v-else>GAME START</RouterLink>
-  </ButtonPart>
+  <RouterLink to="/login" v-if="isSignedUp">
+    <ButtonPart class="start-button">GAME START</ButtonPart>
+  </RouterLink>
+  <RouterLink to="/prologue" v-else>
+    <ButtonPart class="start-button">GAME START</ButtonPart>
+  </RouterLink>
 </template>
 
 <style scoped>
-a {
-  color: #ffffff;
+.start-button {
+  font-size: 3rem;
 }
 </style>
 
