@@ -1,4 +1,15 @@
+<script setup>
+import TitleLogo from '../parts/TitleLogo.vue';
+import LoginForm from '../templates/LoginForm.vue';
+</script>
+
 <template>
-  <p>ログイン画面</p>
-  <p><RouterLink to="/menu">メニュー画面へ</RouterLink></p>
+  <TitleLogo />
+  <LoginForm class="login-form"/>
 </template>
+
+<style scoped>
+.login-form {
+  margin-top: 3rem;
+}
+</style>
