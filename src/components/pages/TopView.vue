@@ -12,7 +12,6 @@ import StartButton from '../templates/StartButton.vue'
       </div>
     </div>
   </div>
-  
 </template>
 
 <style scoped>
@@ -20,7 +19,7 @@ import StartButton from '../templates/StartButton.vue'
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 11rem);
 }
 
 .wrap-top-view {
