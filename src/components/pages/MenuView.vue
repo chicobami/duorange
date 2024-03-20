@@ -20,18 +20,14 @@ const quests = [
 <template>
   <div class="wrap-top-view">
     <div class="white-cover">
-      <div class="wrap-start-button">
-        <h1 class="menu-title">Quest</h1>
-        <MenuButton v-for="quest in quests"
-          :is-completed="quest.isCompleted"
-          :number="quest.number"
-          :title="quest.title"
-        />
-      </div>
+      <h1 class="menu-title">Quest</h1>
+      <MenuButton v-for="quest in quests"
+        :is-completed="quest.isCompleted"
+        :number="quest.number"
+        :title="quest.title"
+      />
     </div>
   </div>
-  <p><RouterLink to="/quest1">quest1へ</RouterLink></p>
-  <p><RouterLink to="/quest2">quest2へ</RouterLink></p>
   <p><RouterLink to="/">ログアウト</RouterLink></p>
 </template>
 
@@ -55,6 +51,7 @@ const quests = [
 
 .menu-title {
   font-family: 'Orbitron';
+  color: #ffffff;
 }
 
 
