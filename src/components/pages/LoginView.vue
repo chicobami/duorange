@@ -5,5 +5,11 @@ import LoginForm from '../templates/LoginForm.vue';
 
 <template>
   <TitleLogo />
-  <LoginForm />
+  <LoginForm class="login-form"/>
 </template>
+
+<style scoped>
+.login-form {
+  margin-top: 3rem;
+}
+</style>
