@@ -14,7 +14,10 @@ export default defineConfig({
         display: 'block',
         injectTo: 'head-prepend',
         families: [
-          'Orbitron'
+          {
+            name: 'Orbitron',
+            styles: 'wght@400..900'
+          }
         ]
       },
       custom: {
