@@ -1,4 +1,5 @@
-// import './assets/main.css'
+import './assets/main.css'
+import 'unfonts.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -13,12 +14,36 @@ import Quest2View from './components/pages/Quest2View.vue';
 import LoginView from './components/pages/LoginView.vue';
 
 const routes = [
-  {path: '/', component: TopView },
-  {path: '/prologue', component: PrologueView },
-  {path: '/menu', component: MenuView },
-  {path: '/quest1', component: Quest1View },
-  {path: '/quest2', component: Quest2View },
-  {path: '/login', component: LoginView },
+  {
+    path: '/', 
+    component: TopView,
+    name: 'top' 
+  },
+  {
+    path: '/prologue', 
+    component: PrologueView, 
+    name: 'prologue'
+  },
+  {
+    path: '/menu', 
+    component: MenuView,
+    name: 'menu' 
+  },
+  {
+    path: '/quest1', 
+    component: Quest1View,
+    name: 'quest1' 
+  },
+  {
+    path: '/quest2', 
+    component: Quest2View,
+    name: 'quest2' 
+  },
+  {
+    path: '/login', 
+    component: LoginView, 
+    name: 'login'
+  },
 ]
 
 const router = createRouter({
