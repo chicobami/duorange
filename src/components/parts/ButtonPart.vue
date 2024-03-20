@@ -12,11 +12,11 @@ button {
   box-shadow: 0rem 0.4rem #846B29;
   border-radius: 0.7rem;
   width: auto;
-  font-weight: bold;
+  font-weight: 700;
   padding: 0.5rem 0.8rem;
-  font-size: 3rem;
-  
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
 }
 
 </style>
-

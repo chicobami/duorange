@@ -8,5 +8,6 @@ h1 {
   font-family: 'PostNoBillsJaffnaExtraBold';
   font-size: 7rem;
   text-align: center;
+  width: 100vw;
 }
 </style>
