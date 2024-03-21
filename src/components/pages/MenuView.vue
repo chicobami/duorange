@@ -38,7 +38,7 @@ const quests = [
           </div>
         </div>
         <div class="wrap-cat">
-          <img class="teach-cat" src="../../../images/teach-cat-white.png"/>
+          <img class="teach-cat" src="/images/teach-cat-white.png"/>
         </div>
       </div>
     </div>
