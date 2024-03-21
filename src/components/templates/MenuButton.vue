@@ -5,12 +5,17 @@ const props = defineProps({
   number: Number,
   title: String,
   root: String,
+  isDisabled: Boolean
 })
 
 </script>
 <template>
-  <RouterLink :to="{ name: 'quest'+props.number }">
-    <ButtonPart class="menu-button" :class="{completed: props.isCompleted}">
+  <RouterLink :to="{ name: 'quest'+props.number }" :class="{ 'link-disable': props.isDisabled }">
+    <ButtonPart 
+      class="menu-button" 
+      :class="{completed: props.isCompleted}"
+      :is-disabled="props.isDisabled"
+    >
       <div class="wrap-text">
         <p class="quest-number">Quest{{ props.number }}</p>
         <p class="quest-title">{{ props.title }}</p>
@@ -25,6 +30,10 @@ const props = defineProps({
 </template>
 
 <style scoped>
+.link-disable {
+  pointer-events: none;
+}
+
 .menu-button {
   padding-left: 2rem;
 }
@@ -53,7 +62,7 @@ const props = defineProps({
 }
 
 .complete-stamp-text {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .quest-number {
