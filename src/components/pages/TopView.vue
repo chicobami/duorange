@@ -8,7 +8,7 @@ import StartButton from '../templates/StartButton.vue'
     <div class="white-cover">
       <TitleLogo />
       <div class="wrap-start-button">
-        <StartButton :is-signed-up="true"/>
+        <StartButton :is-signed-up="false"/>
       </div>
     </div>
   </div>
@@ -28,7 +28,5 @@ import StartButton from '../templates/StartButton.vue'
   width: 100vw;
 }
 
-.white-cover {
 
-}
 </style>
