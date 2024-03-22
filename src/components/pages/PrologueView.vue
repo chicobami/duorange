@@ -42,7 +42,7 @@ export default {
 				<div class="upper"></div>
 				<div class="lower">
 					<div class="neko-sennin">
-						<img src="../../../images/teach-cat-white.png" alt="" />
+						<img src="/images/teach-cat-white.png" alt="" />
 					</div>
 					<div class="lower-textbox">
 						<div class="lower-textbox-item">
