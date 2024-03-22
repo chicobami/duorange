@@ -10,10 +10,13 @@ const props = defineProps({
 
 </script>
 <template>
-  <RouterLink :to="{ name: 'quest'+props.number }" :class="{ 'link-disable': props.isDisabled }">
+  <RouterLink 
+    :to="{ name: 'quest'+props.number }" 
+    :class="{ 'link-disable': props.isDisabled }"
+  >
     <ButtonPart 
       class="menu-button" 
-      :class="{completed: props.isCompleted}"
+      :class="{ completed: props.isCompleted }"
       :is-disabled="props.isDisabled"
     >
       <div class="wrap-text">
