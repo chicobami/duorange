@@ -5,7 +5,7 @@ const quests = [
   {
     number: 1,
     title: 'アカウントってなに？',
-    isCompleted: true,
+    isCompleted: false,
     isDisabled: false
   },
   {
