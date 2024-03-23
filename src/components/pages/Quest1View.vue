@@ -36,6 +36,7 @@
 				],
 				currentSlideStart: 0,
 				slideToShow: 1,
+				questEnd: false
 			};
 		},
 		computed: {
@@ -51,7 +52,8 @@
 		// 	this.currentSlideStart--;
 		// },
 		nextSlide() {
-			if (this.items.length <= this.currentSlideEnd) {
+			if (this.items.length < this.currentSlideEnd + 2) {
+				this.questEnd = true;
 				return;
 			}
 			this.currentSlideStart++;
@@ -89,7 +91,7 @@
 			</div>
 		  </template>
 			</div>
-			<!-- <div class="slider-end">
+			<div class="slider-end" v-if="questEnd">
 				<div class="completion">
 					<h2 class="completion-title">Clear!</h2>
 					<p class="completion-text">Quest1<br />アカウントってなに？</p>
@@ -97,7 +99,7 @@
 						<ButtonPart class="completion-button">Questに戻る</ButtonPart>
 					</RouterLink>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</template>
 <style>
@@ -146,11 +148,12 @@
 	
 	.upper {
 		height: 50%;
+		text-align: center;
 		
 	}
 
 	.upper img{
-		max-width: 1440px;
+		max-height: 50vh;
 		
 
 		
@@ -172,6 +175,7 @@
 	
 	.lower-textbox {
 		width: 75%;
+		
 		-ms-flex-item-align: center;
 		align-self: center;
 		padding: 24px;

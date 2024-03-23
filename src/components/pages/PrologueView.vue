@@ -26,8 +26,8 @@ export default {
 		// 	this.currentSlideStart--;
 		// },
 		nextSlide() {
-			if (this.items.length <= this.currentSlideEnd) {
-				return;
+			if (this.items.length < this.currentSlideEnd + 2) {
+				return this.$router.push('/menu');
 			}
 			this.currentSlideStart++;
 		},
@@ -36,35 +36,27 @@ export default {
 </script>
 
 <template>
-	<div class="main">
-		<div class="container wrapper">
-			<div class="contents">
-				<div class="upper"></div>
-				<div class="lower">
-					<div class="neko-sennin">
-						<img src="/images/teach-cat-white.png" alt="" />
-					</div>
-					<div class="lower-textbox">
-						<div class="lower-textbox-item">
-							<template v-for="(item, index) in items" :key="item.id">
-								<p v-show="index <= currentSlideStart && index <= currentSlideEnd">{{ item.text }}</p>
-							</template>
-							<button @click="nextSlide">▼</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="slider-end">
-			<div class="completion">
-				<h2 class="completion-title">Clear!</h2>
-				<p class="completion-text">Quest1<br />アカウントってなに？</p>
-				<RouterLink to="/menu">
-					<ButtonPart class="completion-button">Questに戻る</ButtonPart>
-				</RouterLink>
-			</div>
-		</div>
-	</div>
+    <div class="main">
+        <div class="container wrapper">
+            <div class="contents">
+                <div class="upper"></div>
+                <div class="lower">
+                    <div class="neko-sennin">
+                        <img src="/images/teach-cat-white.png" alt="" />
+                    </div>
+                    <div class="lower-textbox">
+                        <div class="lower-textbox-item">
+                            <template v-for="(item, index) in items" :key="item.id">
+                                <p v-show="index >= currentSlideStart && index <= currentSlideEnd">{{ item.text }}</p>
+                            </template>
+                            <button @click="nextSlide">▼</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </template>
 <style>
 body {
