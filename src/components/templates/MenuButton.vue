@@ -1,32 +1,35 @@
 <script setup>
 import ButtonPart from '../parts/ButtonPart.vue';
+
 const props = defineProps({
   isCompleted: Boolean,
   number: Number,
   title: String,
   root: String,
 })
-
 </script>
 <template>
-  <RouterLink :to="{ name: 'quest'+props.number }">
-    <ButtonPart class="menu-button" :class="{completed: props.isCompleted}">
-      <div class="wrap-text">
-        <p class="quest-number">Quest{{ props.number }}</p>
-        <p class="quest-title">{{ props.title }}</p>
+  <ButtonPart 
+    class="menu-button" 
+    :class="{completed: props.isCompleted}"
+  >
+    <div class="wrap-text">
+      <p class="quest-number">Quest{{ props.number }}</p>
+      <p class="quest-title">{{ props.title }}</p>
+    </div>
+    <div class="wrap-complete-stamp">
+      <div v-if="props.isCompleted" class="complete-stamp">
+        <p class="complete-stamp-text">Clear!</p>
       </div>
-      <div class="wrap-complete-stamp">
-        <div v-if="props.isCompleted" class="complete-stamp">
-          <p class="complete-stamp-text">Clear!</p>
-        </div>
-      </div>
-    </ButtonPart>
-  </RouterLink>
+    </div>
+  </ButtonPart>
 </template>
 
 <style scoped>
 .menu-button {
   padding-left: 2rem;
+  margin: 2rem 0;
+  
 }
 .completed { 
   background-color: #846B29;

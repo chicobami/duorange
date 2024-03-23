@@ -1,11 +1,16 @@
 <script setup>
+import { ref } from 'vue'
 import MenuButton from '../templates/MenuButton.vue';
+import FishingModal from '../templates/FishingModal.vue'
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const quests = [
   {
     number: 1,
     title: 'アカウントってなに？',
-    isCompleted: true
+    isCompleted: false
   },
   {
     number: 2,
@@ -14,16 +19,34 @@ const quests = [
   }
 ]
 
+const isModal = ref(false)
+
+const starQuest1 = () => {
+  router.push('/quest1')
+}
+
+const showModal = () => {
+  isModal.value = true
+}
+
 </script>
 
 <template>
-  <div class="wrap-menu-view">
+  <div class="wrap-menu-view" :class="{'show-modal': isModal }">
+    <FishingModal v-if="isModal" class="fishing-modal"/>
     <div class="left-area">
       <h1 class="menu-title">Quest</h1>
-      <MenuButton v-for="quest in quests"
-        :is-completed="quest.isCompleted"
-        :number="quest.number"
-        :title="quest.title"
+      <MenuButton 
+        :is-completed="quests[0].isCompleted"
+        :number="quests[0].number"
+        :title="quests[0].title"
+        @click="starQuest1()"
+      />
+      <MenuButton 
+        :is-completed="quests[1].isCompleted"
+        :number="quests[1].number"
+        :title="quests[1].title"
+        @click="showModal()"
       />
       <p class="sub-text">COMING SOON...</p>
     </div>

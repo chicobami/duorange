@@ -1,5 +1,5 @@
 <template>
-  <h1>Cyber Key Quest</h1>
+  <h1><slot></slot></h1>
 </template>
 
 <style scoped>

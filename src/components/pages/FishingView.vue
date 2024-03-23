@@ -1,11 +1,11 @@
 <script setup>
 import TitleLogo from '../parts/TitleLogo.vue';
-import LoginForm from '../templates/LoginForm.vue';
+import FishingForm from '../templates/FishingForm.vue';
 </script>
 
 <template>
-  <TitleLogo>Cyber Key Quest</TitleLogo>
-  <LoginForm class="login-form"/>
+  <TitleLogo>サイバーキークエスト</TitleLogo>
+  <FishingForm class="login-form"/>
 </template>
 
 <style scoped>
