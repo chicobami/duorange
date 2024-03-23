@@ -1,4 +1,7 @@
 <script>
+import { auth } from '../../firebase_settings/index.js';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 	export default {
 		data() {
@@ -34,6 +37,8 @@
 		  { id: 27, text: '最後に、最初の画面に戻ってこのサイトにログインだ！' },
 		  
 				],
+        email: '',
+        password: '',
 				currentSlideStart: 0,
 				slideToShow: 1,
 				questEnd: false
@@ -45,12 +50,22 @@
 		},
 	},
 	methods: {
-		// prevSlide() {
-		// 	if (this.currentSlideStart <= 0) {
-		// 		return;
-		// 	}
-		// 	this.currentSlideStart--;
-		// },
+    saveAccountInfo() {
+      this.currentSlideStart++;
+      this.step = 2;
+    },
+    async registerAccount() {
+      try {
+        await createUserWithEmailAndPassword(auth, this.email, this.password)
+        .then(user => {
+        alert('アカウントが正常に作成されました！');
+        this.currentSlideStart++;
+        })
+      } catch (error) {
+        alert('アカウントの作成に失敗しました…ねこサイバー仙人にお知らせしてください');
+		// 前のスライド id: 24 に戻りたい！！
+      }
+    },
 		nextSlide() {
 			if (this.items.length < this.currentSlideEnd + 2) {
 				this.questEnd = true;
@@ -72,10 +87,14 @@
 				  <div v-if="item.image">
 					  <img :src="item.images" alt="" />
 				  </div>
-				  <div v-if="item.input" class="create-form">
-					  <input type="text" :name="item.name" class="create-form-input" :placeholder="item.placeholder">
-					  <button class="create-submit-button">登録する</button>
-				  </div>
+          <div v-if="item.input && item.id === 24" class="create-form">
+            <input type="email" v-model="email" class="create-form-input" placeholder="メールアドレス" />
+            <button class="create-submit-button" @click="saveAccountInfo">次へ</button>
+          </div>
+          <div v-if="item.input && item.id === 25" class="create-form">
+            <input type="password" v-model="password" class="create-form-input" placeholder="パスワード" />
+            <button class="create-submit-button" @click="registerAccount">登録する</button>
+          </div>
 			  </div>
 			  <div class="lower">
 				  <div class="neko-sennin">
