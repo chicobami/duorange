@@ -1,5 +1,14 @@
+<script setup>
+const props = defineProps({
+  isDisabled: {
+    type: Boolean,
+    default: false
+  }
+})
+</script>
+
 <template>
-  <button>
+  <button :class="{ disabled: props.isDisabled }">
     <slot></slot>
   </button>
 </template>
@@ -18,6 +27,11 @@ button {
   cursor: pointer;
   display: flex;
   letter-spacing: 0.15rem;
+}
+
+.disabled {
+  background-color: #CED4DA;
+  pointer-events: none;
 }
 
 </style>
