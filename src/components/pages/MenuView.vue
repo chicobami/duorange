@@ -81,7 +81,7 @@ const showModal = () => {
 }
 
 .wrap-menu-view {
-  background-image: url("../../../images/22823124.jpg");
+  background-image: url("/images/22823124.jpg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
