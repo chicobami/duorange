@@ -72,7 +72,7 @@ img {
 }
 
 .main {
-	background-image: url('../../../images/22823124.jpg');
+	background-image: url('/images/22823124.jpg');
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;

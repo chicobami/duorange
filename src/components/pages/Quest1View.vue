@@ -79,7 +79,7 @@
 			  </div>
 			  <div class="lower">
 				  <div class="neko-sennin">
-					  <img src="../../../images/teach-cat-white.png" alt="" />
+					  <img src="/images/teach-cat-white.png" alt="" />
 				  </div>
 				  <div class="lower-textbox">
 					  <div class="lower-textbox-item">
@@ -112,7 +112,7 @@
 	
 	
 	.main {
-		background-image: url('../../../images/22823124.jpg');
+		background-image: url('/images/22823124.jpg');
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
