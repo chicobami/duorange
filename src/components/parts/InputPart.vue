@@ -1,11 +1,17 @@
 <script setup>
-  const props = defineProps({
-    placeholder: String
-  })
+const props = defineProps({
+  modelValue: String,
+  placeholder: String
+});
+
+const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <input :placeholder="props.placeholder"/>
+  <input
+    :value="props.modelValue"
+    @input="emit('update:modelValue', $event.target.value)"
+    :placeholder="props.placeholder" />
 </template>
 
 <style scoped>
