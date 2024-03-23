@@ -1,36 +1,31 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { ref } from 'vue';
+import { auth } from '../../firebase_settings/index.js';
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 import InputPart from '../parts/InputPart.vue'
 import ButtonPart from '../parts/ButtonPart.vue'
 
 const router = useRouter()
+const email = ref('');
+const password = ref('');
 
-const inputRequirements = [
-  {
-    name: 'email',
-    placeholder: 'メールアドレス'
-  },
-  {
-    name: 'password',
-    placeholder: 'パスワード'
+const loginHandler = async () => {
+  try {
+    await signInWithEmailAndPassword(auth, email.value, password.value);
+    router.push('/menu');
+  } catch (error) {
+    alert();
   }
-]
-
-const loginHandler = () => {
-  router.push('/menu')
-}
+};
 </script>
 
 <template>
   <div class="wrap-login-form">
-    <InputPart v-for="inputRequirement in inputRequirements"
-      :placeholder="inputRequirement.placeholder"
-      class="login-input"
-    />
-    <ButtonPart class="login-button" @click="loginHandler">
-      ログイン
-    </ButtonPart>
+    <InputPart v-model="email" placeholder="メールアドレス" class="login-input" />
+    <InputPart v-model="password" type="password" placeholder="パスワード" class="login-input" />
+    <ButtonPart class="login-button" @click="loginHandler">ログイン</ButtonPart>
   </div>
 </template>
 
