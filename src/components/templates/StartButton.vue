@@ -4,10 +4,10 @@ const props = defineProps(['isSignedUp'])
 
 </script>
 <template>
-  <RouterLink to="/login" v-if="isSignedUp">
+  <RouterLink to="/prologue" v-if="isSignedUp">
     <ButtonPart class="start-button">GAME START</ButtonPart>
   </RouterLink>
-  <RouterLink to="/prologue" v-else>
+  <RouterLink to="/login" v-else>
     <ButtonPart class="start-button">GAME START</ButtonPart>
   </RouterLink>
 </template>
