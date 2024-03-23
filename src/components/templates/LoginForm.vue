@@ -16,7 +16,7 @@ const loginHandler = async () => {
     await signInWithEmailAndPassword(auth, email.value, password.value);
     router.push('/menu');
   } catch (error) {
-    alert();
+    alert('登録された正しいメールアドレス/パスワードではありません！');
   }
 };
 </script>
