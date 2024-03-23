@@ -5,6 +5,7 @@ import MenuView from '../components/pages/MenuView.vue'
 import PrologueView from '../components/pages/PrologueView.vue'
 import Quest1View from '../components/pages/Quest1View.vue'
 import Quest2View from '../components/pages/Quest2View.vue'
+import FishingView from '../components/pages/FishingView.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/quest2',
     name: 'quest2',
     component: Quest2View
+  },
+  {
+    path: '/fishing',
+    name: 'fishing',
+    component: FishingView
   }
 ]
 
