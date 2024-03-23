@@ -10,14 +10,18 @@ const quests = [
   {
     number: 1,
     title: 'アカウントってなに？',
-    isCompleted: false
+    isCompleted: false,
+    isDisabled: false
   },
   {
     number: 2,
     title: 'フィッシング詐欺とは',
-    isCompleted: false
+    isCompleted: false,
+    isDisabled: false
   }
 ]
+
+const dialogue = quests[1].isDisabled ? 'Quest1をクリックするのだ！' : 'Questを進めてQOLアップだ！';
 
 const isModal = ref(false)
 
@@ -47,6 +51,7 @@ const showModal = () => {
         :number="quests[1].number"
         :title="quests[1].title"
         @click="showModal()"
+        :is-disabled="quest.isDisabled"
       />
       <p class="sub-text">COMING SOON...</p>
     </div>
@@ -57,7 +62,7 @@ const showModal = () => {
       <div class="teach-cat-area">
         <div class="wrap-dialogue-box">
           <div class="dialogue-box">
-            <p class="dialogue">Questを進めてQOLアップだ！</p>
+            <p class="dialogue">{{ dialogue }}</p>
           </div>
         </div>
         <div class="wrap-cat">

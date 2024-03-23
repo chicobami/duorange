@@ -6,12 +6,14 @@ const props = defineProps({
   number: Number,
   title: String,
   root: String,
+  isDisabled: Boolean
 })
 </script>
 <template>
   <ButtonPart 
     class="menu-button" 
     :class="{completed: props.isCompleted}"
+    :is-disabled="props.isDisabled"
   >
     <div class="wrap-text">
       <p class="quest-number">Quest{{ props.number }}</p>
@@ -26,6 +28,10 @@ const props = defineProps({
 </template>
 
 <style scoped>
+.link-disable {
+  pointer-events: none;
+}
+
 .menu-button {
   padding-left: 2rem;
   margin: 2rem 0;
@@ -56,7 +62,7 @@ const props = defineProps({
 }
 
 .complete-stamp-text {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .quest-number {
