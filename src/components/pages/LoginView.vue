@@ -6,6 +6,9 @@ import LoginForm from '../templates/LoginForm.vue';
 <template>
   <TitleLogo>Cyber Key Quest</TitleLogo>
   <LoginForm class="login-form"/>
+  <p>デモではサンプルのメールアドレスとパスワードを入力してください！</p>
+  <p>メールアドレス: duorange@example.com</p>
+  <p>パスワード: duorange@example.com</p>
 </template>
 
 <style scoped>
