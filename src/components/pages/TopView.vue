@@ -6,7 +6,7 @@ import StartButton from '../templates/StartButton.vue'
 <template>
   <div class="wrap-top-view">
     <div class="white-cover">
-      <TitleLogo />
+      <TitleLogo>Cyber Key Quest</TitleLogo>
       <div class="wrap-start-button">
         <StartButton :is-signed-up="false"/>
       </div>
