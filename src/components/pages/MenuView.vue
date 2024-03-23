@@ -44,14 +44,15 @@ const showModal = () => {
         :is-completed="quests[0].isCompleted"
         :number="quests[0].number"
         :title="quests[0].title"
+        :is-disabled="quests[0].isDisabled"
         @click="starQuest1()"
       />
       <MenuButton 
         :is-completed="quests[1].isCompleted"
         :number="quests[1].number"
         :title="quests[1].title"
+        :is-disabled="quests[1].isDisabled"
         @click="showModal()"
-        :is-disabled="quest.isDisabled"
       />
       <p class="sub-text">COMING SOON...</p>
     </div>

@@ -14,7 +14,7 @@ const password = ref('');
 const loginHandler = async () => {
   try {
     await signInWithEmailAndPassword(auth, email.value, password.value);
-    router.push('/menu');
+    router.push('/prologue');
   } catch (error) {
     alert('登録された正しいメールアドレス/パスワードではありません！');
   }
