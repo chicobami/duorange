@@ -24,8 +24,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 		  { id: 14, text:'宝箱そのものがメールアドレス、箱をあける鍵がパスワードだ。'},
 		  { id: 15, text:'メアドでここにアカウント（宝箱）があるなーと機械は認識し、', image:true , images:'/images/image06.jpg'},
 		  { id: 16, text:'パスワード（鍵）でこの宝箱の持ち主なのだなと確認する。', image:true , images:'/images/image07.jpg'},
-		  { id: 17, text: '晴れて、宝箱が利用できるようになる（ログイン）のだ。', image: '/images/image08.jpg' },
-		  { id: 18, text: 'この「この宝箱の持ち主なのだなと確認する」がとても大事！' },
+		  { id: 17, text: '晴れて、宝箱が利用できるようになる（ログイン）のだ。', image:true ,image: '/images/image08.jpg' },
+		  { id: 18, text: 'この「この宝箱の持ち主なのだなと確認する」がとても大事！', image:true ,image: '/images/image08.jpg' },
 		  { id: 19, text: 'パスワードが他の人に知られてしまう＝鍵が他の人の手に渡ると、' },
 		  { id: 20, text: 'いくらでもなりすませて、お金をとられるケースも…' },
 		  { id: 21, text: 'パスワードの管理は厳重になのだ！' },
@@ -100,10 +100,10 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 				  <div class="neko-sennin">
 					  <img src="/images/teach-cat-white.png" alt="" />
 				  </div>
-				  <div class="lower-textbox">
+				  <div class="lower-textbox" @click="nextSlide">
 					  <div class="lower-textbox-item">
 						  <p>{{ item.text }}</p>
-						  <button @click="nextSlide">▼</button>
+						  <button>▼</button>
 					  </div>
 				  </div>
 			  </div>
@@ -213,6 +213,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 	
 	.lower-textbox p {
 		width: 90%;
+		min-height:4em;
 		font-family: 'Orbitron';
 		font-style: normal;
 		font-weight: 700;
