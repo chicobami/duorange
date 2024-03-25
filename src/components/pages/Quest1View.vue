@@ -35,7 +35,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 		  { id: 25, text: 'パスワードも入力してみるのだ！', input:true, name: 'password', placeholder: 'パスワード' },
 		  { id: 26, text: 'これで、アカウントが作成できたな！' },
 		  { id: 27, text: '最後に、最初の画面に戻ってこのサイトにログインだ！' },
-		  
+		  { id: 28, text: 'おや、アカウントはすでに作成しているのだな！' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
+		  { id: 29, text: 'ではログインしてみよう' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
 				],
         email: '',
         password: '',
