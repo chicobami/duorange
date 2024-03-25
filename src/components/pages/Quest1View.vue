@@ -63,8 +63,9 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
         this.currentSlideStart++;
         })
       } catch (error) {
-        alert('アカウントの作成に失敗しました…ねこサイバー仙人にお知らせしてください');
-		// 前のスライド id: 24 に戻りたい！！
+        alert('すでにアカウントが存在します！');
+        // アカウントが存在する場合はセリフ26, 27を飛ばして、28を表示させたい！
+        this.slideToShow = 28; // TODO: 正しい表示に改修
       }
     },
 		nextSlide() {
