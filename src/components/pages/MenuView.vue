@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import MenuButton from '../templates/MenuButton.vue';
+import LogoutButton from '../templates/LogoutButton.vue'
 import FishingModal from '../templates/FishingModal.vue'
 
 import { useRouter } from 'vue-router'
@@ -58,7 +59,7 @@ const showModal = () => {
     </div>
     <div class="right-area">
       <div class="logout-area">
-        <RouterLink to="/"><button>ログアウト</button></RouterLink>
+        <LogoutButton />
       </div>
       <div class="teach-cat-area">
         <div class="wrap-dialogue-box">
@@ -75,12 +76,6 @@ const showModal = () => {
 </template>
 
 <style scoped>
-.wrap-start-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .wrap-menu-view {
   background-image: url("/images/22823124.jpg");
   background-size: cover;
@@ -92,7 +87,7 @@ const showModal = () => {
 .left-area {
   background-color: #ffffff;
   width: 50vw;
-  padding-left: 4rem;
+  padding: 4rem 0 0 4rem;
 }
 
 .menu-title {
@@ -115,6 +110,7 @@ const showModal = () => {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding: 7rem 6rem 2rem 0;
 }
 
 .logout-area {
@@ -124,25 +120,27 @@ const showModal = () => {
 .teach-cat-area {
   display: flex;
   height: 30vh;
-  padding: 0 2rem 2rem 0;
+  align-items: flex-end;
+
 }
 
 .dialogue-box {
   background-color: #ffffff;
   /* height: 100%; */
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .dialogue {
   font-family: 'Orbitron';
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   color: #846B29;
   font-weight: 700;
 }
 
 .teach-cat {
-  width: 150px;
+  width: 200px;
 }
 
 
