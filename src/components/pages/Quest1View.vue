@@ -65,7 +65,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
       } catch (error) {
         alert('すでにアカウントが存在します！');
         // アカウントが存在する場合はセリフ26, 27を飛ばして、28を表示
-        this.currentSlideStart =+ 4;
+        this.currentSlideStart += 3;
       }
     },
 		nextSlide() {
