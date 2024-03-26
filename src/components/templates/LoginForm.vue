@@ -14,7 +14,7 @@ const password = ref('');
 const loginHandler = async () => {
   try {
     await signInWithEmailAndPassword(auth, email.value, password.value);
-    router.push('/prologue');
+    router.push('/menu');
   } catch (error) {
     alert('登録された正しいメールアドレス/パスワードではありません！');
   }
@@ -44,6 +44,7 @@ const loginHandler = async () => {
 
 .login-input {
   width: 20rem;
+  margin: 1rem 0;
 }
 
 .login-button {
