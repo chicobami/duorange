@@ -67,7 +67,7 @@ export default {
 			}
 		},
 		nextSlide() {
-			if (this.items.length < this.currentSlideEnd + 2) {
+			if (this.items.length < this.currentSlideEnd + 2 || this.items[this.currentSlideStart].id === 27) {
 				this.questEnd = true;
 				return;
 			}
