@@ -31,8 +31,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 		  { id: 21, text: 'パスワードの管理は厳重になのだ！' },
 		  { id: 22, text: 'さて、さっそくアカウント作成とログインを実践してみよう！' },
 		  { id: 23, text: 'まずはこのサイト「サイバーキークエスト」で挑戦だ。' },
-		  { id: 24, text: 'では、メールアドレスを入力してみるのだ！',input:true, name: 'email', placeholder: 'メールアドレス'},
-		  { id: 25, text: 'パスワードも入力してみるのだ！', input:true, name: 'password', placeholder: 'パスワード' },
+		  { id: 24, text: 'では、メールアドレスを入力してみるのだ！',input:true, name: 'email', placeholder: 'メールアドレス', fixed: true},
+		  { id: 25, text: 'パスワードも入力してみるのだ！', input:true, name: 'password', placeholder: 'パスワード', fixed: true },
 		  { id: 26, text: 'これで、アカウントが作成できたな！' },
 		  { id: 27, text: '最後に、最初の画面に戻ってこのサイトにログインだ！' },
 		  
@@ -66,11 +66,18 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 		// 前のスライド id: 24 に戻りたい！！
       }
     },
-		nextSlide() {
+		nextSlide(slideFixed) {
+			// 最終スライドの場合
 			if (this.items.length < this.currentSlideEnd + 2) {
 				this.questEnd = true;
 				return;
 			}
+
+			// スライドが進まないよう固定する場合
+			if (slideFixed === true) {
+				return;
+			}
+
 			this.currentSlideStart++;
 		},
 	},
@@ -103,7 +110,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 				  <div class="lower-textbox">
 					  <div class="lower-textbox-item">
 						  <p>{{ item.text }}</p>
-						  <button @click="nextSlide">▼</button>
+						  <button @click="nextSlide(item.fixed)">▼</button>
 					  </div>
 				  </div>
 			  </div>
