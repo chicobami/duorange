@@ -10,36 +10,38 @@ export default {
 				{ id: 1, text: 'インターネットを使おうとすると、いつも求められるだろう。' },
 				{ id: 2, text: 'しかし、いきなりメアドが必要！などといわれてもわけがわからん。' },
 				{ id: 3, text: 'そこで、アカウントとはなにかをまず理解するのだ。' },
-				{ id: 4, text: 'まず、インターネットはこのように機械同士がやりとりして動く。門の先がサイトじゃ。', image: true, images: '/images/image01.jpg' },
-				{ id: 5, text: 'しかし、この門をただ通るだけでは、門番はあなたを認識しない。', image: true, images: '/images/image02.jpg' },
-				{ id: 6, text: '透明マントをかぶっているのと同じ状態じゃ。', image: true, images: '/images/image02.jpg' },
-				{ id: 7, text: '透明人間には、門の内側で何もできんから、中で何かするには、門番に認識されないといかんのだ。そこで、', image: true, images: '/images/image02.jpg' },
-				{ id: 8, text: '門番があなたをあなただと認識するために使うのがアカウントなのだ！', image: true, images: '/images/image03.jpg' },
+				{ id: 4, text:'まず、インターネットはこのように機械同士がやりとりして動く。門の先がサイトじゃ。', image:true , images:'/images/image01.jpg'},
+				{ id: 5, text:'しかし、この門をただ通るだけでは、門番はあなたを認識しない。', image:true , images:'/images/image02.jpg'},
+				{ id: 6, text:'透明マントをかぶっているのと同じ状態じゃ。', image:true , images:'/images/image02.jpg'},
+				{ id: 7, text:'透明人間には、門の内側で何もできんから、中で何かするには、門番に認識されないといかんのだ。そこで、', image:true , images:'/images/image02.jpg'},
+				{ id: 8, text:'門番があなたをあなただと認識するために使うのがアカウントなのだ！', image:true , images:'/images/image03.jpg'},
 				{ id: 9, text: 'なお、門に入る前の状態が「ログアウト」入った後が「ログイン」だ。', image: '/images/image04.jpg' },
-				{ id: 10, text: 'アカウントがなんのためのものかはわかったのだ？' },
-				{ id: 11, text: '次に、アカウントが何でできているかを説明しよう。' },
-				{ id: 12, text: 'アカウントを構成するのは、メアドとパスワードだ。' },
-				{ id: 13, text: 'アカウントを宝箱と考えてみよう。', image: true, images: '/images/image05.jpg' },
-				{ id: 14, text: '宝箱そのものがメールアドレス、箱をあける鍵がパスワードだ。' },
-				{ id: 15, text: 'メアドでここにアカウント（宝箱）があるなーと機械は認識し、', image: true, images: '/images/image06.jpg' },
-				{ id: 16, text: 'パスワード（鍵）でこの宝箱の持ち主なのだなと確認する。', image: true, images: '/images/image07.jpg' },
-				{ id: 17, text: '晴れて、宝箱が利用できるようになる（ログイン）のだ。', image: true, images: '/images/image08.jpg' },
-				{ id: 18, text: 'この「この宝箱の持ち主なのだなと確認する」がとても大事！', image: true, images: '/images/image08.jpg' },
+				{ id: 10, text:'アカウントがなんのためのものかはわかったのだ？'},
+				{ id: 11, text:'次に、アカウントが何でできているかを説明しよう。'},
+				{ id: 12, text:'アカウントを構成するのは、メアドとパスワードだ。'},
+				{ id: 13, text:'アカウントを宝箱と考えてみよう。', image:true , images:'/images/image05.jpg'},
+				{ id: 14, text:'宝箱そのものがメールアドレス、箱をあける鍵がパスワードだ。'},
+				{ id: 15, text:'メアドでここにアカウント（宝箱）があるなーと機械は認識し、', image:true , images:'/images/image06.jpg'},
+				{ id: 16, text:'パスワード（鍵）でこの宝箱の持ち主なのだなと確認する。', image:true , images:'/images/image07.jpg'},
+				{ id: 17, text: '晴れて、宝箱が利用できるようになる（ログイン）のだ。', image: '/images/image08.jpg' },
+				{ id: 18, text: 'この「この宝箱の持ち主なのだなと確認する」がとても大事！' },
 				{ id: 19, text: 'パスワードが他の人に知られてしまう＝鍵が他の人の手に渡ると、' },
 				{ id: 20, text: 'いくらでもなりすませて、お金をとられるケースも…' },
 				{ id: 21, text: 'パスワードの管理は厳重になのだ！' },
 				{ id: 22, text: 'さて、さっそくアカウント作成とログインを実践してみよう！' },
 				{ id: 23, text: 'まずはこのサイト「サイバーキークエスト」で挑戦だ。' },
-				{ id: 24, text: 'では、メールアドレスを入力してみるのだ！', input: true, name: 'email', placeholder: 'メールアドレス' , fixed: true},
-				{ id: 25, text: 'パスワードも入力してみるのだ！', input: true, name: 'password', placeholder: 'パスワード', fixed: true },
+				{ id: 24, text: 'では、メールアドレスを入力してみるのだ！',input:true, name: 'email', placeholder: 'メールアドレス', fixed: true},
+				{ id: 25, text: 'パスワードも入力してみるのだ！', input:true, name: 'password', placeholder: 'パスワード', fixed: true },
 				{ id: 26, text: 'これで、アカウントが作成できたな！' },
 				{ id: 27, text: '最後に、最初の画面に戻ってこのサイトにログインだ！' },
+				{ id: 28, text: 'おや、アカウントはすでに作成しているのだな！' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
+				{ id: 29, text: 'ではログインしてみよう' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
 			],
 			email: '',
 			password: '',
 			currentSlideStart: 0,
 			slideToShow: 1,
-			questEnd: false,
+			questEnd: false
 		};
 	},
 	computed: {
@@ -59,13 +61,14 @@ export default {
 					this.currentSlideStart++;
 				});
 			} catch (error) {
-				alert('アカウントの作成に失敗しました…ねこサイバー仙人にお知らせしてください');
-				// 前のスライド id: 24 に戻りたい！！
+				alert('すでにアカウントが存在します！');
+		        // アカウントが存在する場合はセリフ26, 27を飛ばして、28を表示
+    		    this.currentSlideStart += 3;
 			}
 		},
 		nextSlide(slideFixed) {
 			// 最終スライドの場合
-			if (this.items.length < this.currentSlideEnd + 2) {
+			if (this.items.length < this.currentSlideEnd + 2 || this.items[this.currentSlideStart].id === 27) {
 				this.questEnd = true;
 				return;
 			}
