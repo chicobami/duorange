@@ -1,6 +1,6 @@
 <script>
 import { auth } from '../../firebase_settings/index.js';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default {
 	data() {
@@ -41,13 +41,41 @@ export default {
 			password: '',
 			currentSlideStart: 0,
 			slideToShow: 1,
-			questEnd: false
+			isSignedUp: false,
+			accountCreateSuccessful: false,
 		};
+	},
+	mounted() {
+		onAuthStateChanged(getAuth(), (user) => {
+			if (user) {
+				this.isSignedUp = true;
+			} else {
+				this.isSignedUp = false;
+			}
+		});
+	},
+	mounted() {
+		onAuthStateChanged(getAuth(), (user) => {
+			if (user) {
+				this.isSignedUp = true;
+			} else {
+				this.isSignedUp = false;
+			}
+		});
 	},
 	computed: {
 		currentSlideEnd() {
 			return this.currentSlideStart + this.slideToShow - 1;
 		},
+		lastSlideId() {
+			if (this.isSignedUp === true) {
+				return 21;
+			} else if (this.accountCreateSuccessful === true) {
+				return 27;
+			} else {
+				return 29;
+			}
+		}
 	},
 	methods: {
 		saveAccountInfo() {
@@ -58,7 +86,14 @@ export default {
 			try {
 				await createUserWithEmailAndPassword(auth, this.email, this.password).then((user) => {
 					alert('アカウントが正常に作成されました！');
-					this.currentSlideStart++;
+					signOut(auth).then(() => {
+						// Sign-out successful.
+						this.accountCreateSuccessful = true;
+						this.currentSlideStart++;
+					}).catch((error) => {
+						// An error happened.
+						alert('エラーが起きました…ねこサイバー仙人にお知らせしてください');
+					});
 				});
 			} catch (error) {
 				alert('すでにアカウントが存在します！');
@@ -67,18 +102,23 @@ export default {
 			}
 		},
 		nextSlide(slideFixed) {
-			// 最終スライドの場合
-			if (this.items.length < this.currentSlideEnd + 2 || this.items[this.currentSlideStart].id === 27) {
-				this.questEnd = true;
-				return;
-			}
-
 			// スライドが進まないよう固定する場合
 			if (slideFixed === true) {
 				return;
 			}
 
-			this.currentSlideStart++;
+			// 通常のスライドの場合
+			if (this.lastSlideId !== this.currentSlideEnd) {
+				this.currentSlideStart++;
+				return;
+			}
+
+			// 最終スライドの場合
+			if (this.lastSlideId === 21) {
+				this.$router.push('/Quest1/clear')
+			} else {
+				this.$router.push('/Quest1/login')
+			}
 		},
 	},
 };
@@ -115,15 +155,6 @@ export default {
 					</div>
 				</div>
 			</template>
-		</div>
-		<div class="slider-end" v-if="questEnd">
-			<div class="completion">
-				<h2 class="completion-title">Clear!</h2>
-				<p class="completion-text">Quest1<br />アカウントってなに？</p>
-				<RouterLink to="/menu">
-					<ButtonPart class="completion-button">Questに戻る</ButtonPart>
-				</RouterLink>
-			</div>
 		</div>
 	</div>
 </template>
@@ -281,52 +312,6 @@ img {
 	display: flex;
 	align-items: center;
 	justify-self: center;
-}
-
-.completion {
-	width: 30%;
-
-	background: #fff;
-	border-radius: 8px;
-	padding: 5rem;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-self: center;
-	flex-direction: column;
-}
-
-.completion-title {
-	color: #846b29;
-	font-family: 'PostNoBillsJaffnaExtraBold';
-	font-size: 5rem;
-	text-align: center;
-	letter-spacing: 0.15rem;
-}
-
-.completion-text {
-	color: #846b29;
-	font-family: 'PostNoBillsJaffnaExtraBold';
-	font-size: 2rem;
-	text-align: center;
-	letter-spacing: 0.15rem;
-}
-
-.completion-button {
-	background-color: #c9a444;
-	font-family: 'Orbitron';
-	box-shadow: 0rem 0.3rem #846b29;
-	border-radius: 0.7rem;
-	width: auto;
-	font-size: 2rem;
-	font-weight: 700;
-	padding: 0.5rem 0.8rem;
-	color: #ffffff;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	letter-spacing: 0.15rem;
 }
 
 .create-form {

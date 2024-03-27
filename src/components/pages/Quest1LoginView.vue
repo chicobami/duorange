@@ -1,16 +1,13 @@
 <script setup>
 import TitleLogo from '../parts/TitleLogo.vue';
 import LoginForm from '../templates/LoginForm.vue';
-import FirstTimeButton from '../templates/FirstTimeButton.vue';
 
-const destination = 'menu'
-
+const destination = 'quest1/clear'
 </script>
 
 <template>
   <div class="wrap-login-view">
     <TitleLogo class="top-logo">Cyber Key Quest</TitleLogo>
-    <FirstTimeButton />
     <div class="wrap-login-area">
       <LoginForm class="login-form" :destination="destination"/>
     </div>
