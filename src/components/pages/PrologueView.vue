@@ -36,27 +36,26 @@ export default {
 </script>
 
 <template>
-    <div class="main">
-        <div class="container wrapper">
-            <div class="contents">
-                <div class="upper"></div>
-                <div class="lower">
-                    <div class="neko-sennin">
-                        <img src="/images/teach-cat-white.png" alt="" />
-                    </div>
-                    <div class="lower-textbox">
-                        <div class="lower-textbox-item">
-                            <template v-for="(item, index) in items" :key="item.id">
-                                <p v-show="index >= currentSlideStart && index <= currentSlideEnd">{{ item.text }}</p>
-                            </template>
-                            <button @click="nextSlide">▼</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+	<div class="main">
+		<div class="container wrapper">
+			<div class="contents">
+				<div class="upper"></div>
+				<div class="lower">
+					<div class="neko-sennin">
+						<img src="/images/teach-cat-white.png" alt="" />
+					</div>
+					<div class="lower-textbox" @click="nextSlide">
+						<div class="lower-textbox-item">
+							<template v-for="(item, index) in items" :key="item.id">
+								<p v-show="index >= currentSlideStart && index <= currentSlideEnd">{{ item.text }}</p>
+							</template>
+							<button>▼</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 <style scoped>
 body {
@@ -144,6 +143,7 @@ img {
 
 .lower-textbox p {
 	width: 90%;
+	min-height: 4em;
 	font-family: 'Orbitron';
 	font-style: normal;
 	font-weight: 700;
