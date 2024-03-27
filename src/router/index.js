@@ -6,6 +6,8 @@ import PrologueView from '../components/pages/PrologueView.vue'
 import Quest1View from '../components/pages/Quest1View.vue'
 import Quest2View from '../components/pages/Quest2View.vue'
 import FishingView from '../components/pages/FishingView.vue'
+import Quest1LoginView from '../components/pages/Quest1LoginView.vue'
+import Quest1ClearView from '../components/pages/Quest1ClearView.vue'
 
 const routes = [
   {
@@ -32,6 +34,16 @@ const routes = [
     path: '/quest1',
     name: 'quest1',
     component: Quest1View
+  },
+  {
+    path: '/quest1/login',
+    name: 'quest1Login',
+    component: Quest1LoginView
+  },
+  {
+    path: '/quest1/clear',
+    name: 'quest1Clear',
+    component: Quest1ClearView
   },
   {
     path: '/quest2',
