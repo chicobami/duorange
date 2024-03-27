@@ -30,8 +30,8 @@ export default {
 				{ id: 21, text: 'パスワードの管理は厳重になのだ！' },
 				{ id: 22, text: 'さて、さっそくアカウント作成とログインを実践してみよう！' },
 				{ id: 23, text: 'まずはこのサイト「サイバーキークエスト」で挑戦だ。' },
-				{ id: 24, text: 'では、メールアドレスを入力してみるのだ！',input:true, name: 'email', placeholder: 'メールアドレス'},
-				{ id: 25, text: 'パスワードも入力してみるのだ！', input:true, name: 'password', placeholder: 'パスワード' },
+				{ id: 24, text: 'では、メールアドレスを入力してみるのだ！',input:true, name: 'email', placeholder: 'メールアドレス', fixed: true},
+				{ id: 25, text: 'パスワードも入力してみるのだ！', input:true, name: 'password', placeholder: 'パスワード', fixed: true },
 				{ id: 26, text: 'これで、アカウントが作成できたな！' },
 				{ id: 27, text: '最後に、最初の画面に戻ってこのサイトにログインだ！' },
 				{ id: 28, text: 'おや、アカウントはすでに作成しているのだな！' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
@@ -101,11 +101,19 @@ export default {
     		    this.currentSlideStart += 3;
 			}
 		},
-		nextSlide() {
+		nextSlide(slideFixed) {
+			// スライドが進まないよう固定する場合
+			if (slideFixed === true) {
+				return;
+			}
+
+			// 通常のスライドの場合
 			if (this.lastSlideId !== this.currentSlideEnd) {
 				this.currentSlideStart++;
 				return;
 			}
+
+			// 最終スライドの場合
 			if (this.lastSlideId === 21) {
 				this.$router.push('/Quest1/clear')
 			} else {
@@ -115,7 +123,7 @@ export default {
 	},
 };
 </script>
-
+	
 <template>
 	<div class="main">
 		<div class="container wrapper">
@@ -138,7 +146,7 @@ export default {
 						<div class="neko-sennin">
 							<img src="/images/teach-cat-white.png" alt="" />
 						</div>
-						<div class="lower-textbox" @click="nextSlide">
+						<div class="lower-textbox" @click="nextSlide(item.fixed)">
 							<div class="lower-textbox-item">
 								<p>{{ item.text }}</p>
 								<button>▼</button>
