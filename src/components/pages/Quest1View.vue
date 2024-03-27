@@ -1,6 +1,6 @@
 <script>
 import { auth } from '../../firebase_settings/index.js';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default {
 	data() {
@@ -34,18 +34,40 @@ export default {
 				{ id: 25, text: 'パスワードも入力してみるのだ！', input: true, name: 'password', placeholder: 'パスワード' },
 				{ id: 26, text: 'これで、アカウントが作成できたな！' },
 				{ id: 27, text: '最後に、最初の画面に戻ってこのサイトにログインだ！' },
+				{ id: 28, text: 'おや、アカウントはすでに作成しているのだな！' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
+				{ id: 29, text: 'ではログインしてみよう' }, // NOTE: 同一アカウントが存在する場合の動作確認用, セリフは適当です
 			],
 			email: '',
 			password: '',
 			currentSlideStart: 0,
 			slideToShow: 1,
 			questEnd: false,
+			isSignedUp: false,
+			accountCreateSuccessful: false,
 		};
+	},
+	mounted() {
+		onAuthStateChanged(getAuth(), (user) => {
+			if (user) {
+				this.isSignedUp = true;
+			} else {
+				this.isSignedUp = false;
+			}
+		});
 	},
 	computed: {
 		currentSlideEnd() {
 			return this.currentSlideStart + this.slideToShow - 1;
 		},
+		lastSlideId() {
+			if (this.isSignedUp === true) {
+				return 21;
+			} else if (this.accountCreateSuccessful === true) {
+				return 27;
+			} else {
+				return 29;
+			}
+		}
 	},
 	methods: {
 		saveAccountInfo() {
@@ -56,15 +78,23 @@ export default {
 			try {
 				await createUserWithEmailAndPassword(auth, this.email, this.password).then((user) => {
 					alert('アカウントが正常に作成されました！');
-					this.currentSlideStart++;
+					signOut(auth).then(() => {
+						// Sign-out successful.
+						this.accountCreateSuccessful = true;
+						this.currentSlideStart++;
+					}).catch((error) => {
+						// An error happened.
+						alert('エラーが起きました…ねこサイバー仙人にお知らせしてください');
+					});
 				});
 			} catch (error) {
 				alert('アカウントの作成に失敗しました…ねこサイバー仙人にお知らせしてください');
+				this.currentSlideStart += 3;
 				// 前のスライド id: 24 に戻りたい！！
 			}
 		},
 		nextSlide() {
-			if (this.items.length < this.currentSlideEnd + 2) {
+			if (this.lastSlideId === this.currentSlideEnd) {
 				this.questEnd = true;
 				return;
 			}
